@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomFileGenerator", "TExtFileGenerator\RandomFileGenerator.csproj", "{6E3E8C60-2C3F-4FA6-87D1-CA38A05A12D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RandomFileGenerator", "RandomFileGenerator\RandomFileGenerator.csproj", "{A7B123C0-4D66-4347-B9A0-068D9A23F041}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6E3E8C60-2C3F-4FA6-87D1-CA38A05A12D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6E3E8C60-2C3F-4FA6-87D1-CA38A05A12D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6E3E8C60-2C3F-4FA6-87D1-CA38A05A12D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6E3E8C60-2C3F-4FA6-87D1-CA38A05A12D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7B123C0-4D66-4347-B9A0-068D9A23F041}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7B123C0-4D66-4347-B9A0-068D9A23F041}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7B123C0-4D66-4347-B9A0-068D9A23F041}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7B123C0-4D66-4347-B9A0-068D9A23F041}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
