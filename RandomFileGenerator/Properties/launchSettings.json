@@ -2,7 +2,7 @@
   "profiles": {
     "TExtFileGenerator": {
       "commandName": "Project",
-      "commandLineArgs": "--file test.dat"
+      "commandLineArgs": "--file ttest.dat --type binary -p"
     }
   }
 }

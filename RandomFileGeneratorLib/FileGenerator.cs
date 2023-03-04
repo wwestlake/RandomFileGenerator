@@ -17,19 +17,8 @@ namespace RandomFileGeneratorLib
         public long TotalSize 
         { 
             get 
-            { 
-                switch (ParsingTarget.Unit)
-                {
-                    case "B":
-                    case "b": return ParsingTarget.Size;
-                    case "K":
-                    case "k": return ParsingTarget.Size * 1024;
-                    case "M":
-                    case "m": return ParsingTarget.Size * 1024 * 1024;
-                    case "G":
-                    case "g": return ParsingTarget.Size * 1024 * 1024 * 1024;
-                }
-                return ParsingTarget.Size;
+            {
+                return ParsingTarget.FileSize();
             } 
         }
 

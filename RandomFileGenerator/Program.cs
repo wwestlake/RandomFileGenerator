@@ -2,29 +2,40 @@
 using RandomFileGeneratorLib;
 using CommandLineParser.Arguments;
 using CommandLineParser.Exceptions;
+using RandomFileGeneratorLib.Policies;
 
 Console.WriteLine("Generating file");
-
-
-CommandLineParser.CommandLineParser parser = new CommandLineParser.CommandLineParser();
 ParsingTarget parseTarget = new ParsingTarget();
-try
-{
-    parser.ExtractArgumentAttributes(parseTarget);
-    parser.ParseCommandLine(args);
+CommandLineParser.CommandLineParser parser = new CommandLineParser.CommandLineParser();
 
-    parser.ShowUsageHeader = "Here is how you use the app: ";
-    parser.ShowUsageFooter = "Have fun!";
-    parser.ShowUsage();
-
-}
-catch (Exception ex)
+void ShowUsage()
 {
-    Console.WriteLine(ex.ToString());
     parser.ShowUsageHeader = "Here is how you use the app: ";
     parser.ShowUsageFooter = "Have fun!";
     parser.ShowUsage();
     Environment.Exit(-1);
+}
+
+
+
+
+try
+{
+   
+    parser.ExtractArgumentAttributes(parseTarget);
+    parser.ParseCommandLine(args);
+    string message = string.Empty;
+    if (!parseTarget.Validate(out message))
+    {
+        Console.WriteLine($"\n\nOoops ther was an error:  {message}\n\n");
+        ShowUsage();
+        Environment.Exit(-1);
+    }
+}
+catch (Exception ex)
+{
+    Console.WriteLine(ex.ToString());
+    ShowUsage();
 }
 
 try
