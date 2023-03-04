@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RandomFileGenerator
+namespace RandomFileGeneratorLib
 {
-    internal class FileGenerator
+    public class FileGenerator
     {
         public FileGenerator(ParsingTarget parsingTarget)
         {

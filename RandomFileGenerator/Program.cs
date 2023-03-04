@@ -1,5 +1,5 @@
 ﻿
-using RandomFileGenerator;
+using RandomFileGeneratorLib;
 using CommandLineParser.Arguments;
 using CommandLineParser.Exceptions;
 
@@ -12,6 +12,11 @@ try
 {
     parser.ExtractArgumentAttributes(parseTarget);
     parser.ParseCommandLine(args);
+
+    parser.ShowUsageHeader = "Here is how you use the app: ";
+    parser.ShowUsageFooter = "Have fun!";
+    parser.ShowUsage();
+
 }
 catch (Exception ex)
 {

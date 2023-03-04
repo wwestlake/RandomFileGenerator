@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace RandomFileGenerator
+namespace RandomFileGeneratorLib
 {
 
 
@@ -19,17 +19,23 @@ namespace RandomFileGenerator
             Et harum quidem rerum facilis est et expedita distinctio.Nam libero tempore  cum soluta nobis est eligendi optio  cumque nihil impedit  quo minus id  quod maxime placeat  facere possimus  omnis voluptas assumenda est  omnis dolor repellendus.
             Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet  ut et voluptates repudiandae sint et molestiae non recusandae.Itaque earum rerum hic tenetur a sapiente delectus  ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.";
 
+        string[] punc = {".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".",
+            ",", ",", ",", ",", ",", ",", ",", ",", ",", ",", ",",
+            ";", ";", ";", ";", ";", ";" };
 
         List<string> words = new List<string>();
         Random random = new Random((int)DateTime.Now.Ticks);
+        readonly ParsingTarget _options;
 
-        public LoremIpsumGenerator()
+        public LoremIpsumGenerator(ParsingTarget options)
         {
+            _options = options;
             ipsum = ipsum.Replace("\n", "");
             ipsum = ipsum.Replace("\r", "");
             ipsum = ipsum.Replace(".", "");
             var ipsum_words = ipsum.Split(' ', StringSplitOptions.RemoveEmptyEntries);
             words.AddRange(ipsum_words);
+            words.AddRange(punc);
         }
 
         private string RandomWord()
@@ -42,10 +48,55 @@ namespace RandomFileGenerator
         {
             long bytesGenerated = 0;
             StreamWriter sw = new StreamWriter(sink);
+            string currentWord = RandomWord();
+            string nextWord = RandomWord();
+            bool firstWord = true;
+            string word = string.Empty;
+            int wordCount = 0;
+            int paragraphSize = 0;
 
             while (bytesGenerated < numberOfBytes)
             {
-                var word = RandomWord() + " ";
+                if (_options.Paragraphize)
+                {
+                    if (wordCount == 0)
+                    {
+                        paragraphSize = random.Next(_options.MinPAragraphSize, _options.MaxPAragraphSize);
+                    }
+
+                    wordCount++;
+
+                    if (wordCount >= paragraphSize)
+                    {
+                        currentWord = "\n";
+                        nextWord = RandomWord();
+                        wordCount = 0;
+                    }
+                }
+
+                if (punc.Contains(nextWord) && punc.Contains(currentWord))
+                {
+                    currentWord = RandomWord();
+                    nextWord = RandomWord();
+                }
+
+                if (firstWord)
+                {
+                    word = "Lorem Ipsum ";
+                    firstWord = false;
+                } else if (! punc.Contains(nextWord))
+                {
+                    word = currentWord + " ";
+                    currentWord = nextWord;
+                    nextWord = RandomWord();
+                } else 
+                {
+                    word = currentWord + nextWord + " ";
+                    currentWord = RandomWord();
+                    nextWord = RandomWord();
+                } 
+
+
                 if (bytesGenerated + word.Length <= numberOfBytes)
                 {
                     sw.Write(word);

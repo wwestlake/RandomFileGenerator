@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RandomFileGenerator
+namespace RandomFileGeneratorLib
 {
     internal class Generator
     {
@@ -16,7 +16,7 @@ namespace RandomFileGenerator
             Options = options;
             switch (options.FileType)
             {
-                case "text": _generator = new LoremIpsumGenerator(); break;
+                case "text": _generator = new LoremIpsumGenerator(options); break;
                 case "binary": _generator = new BinaryGenerator(); break;
             }
         }

@@ -1,5 +1,5 @@
 ﻿
-namespace RandomFileGenerator
+namespace RandomFileGeneratorLib
 {
     public interface IGenerator
     {
