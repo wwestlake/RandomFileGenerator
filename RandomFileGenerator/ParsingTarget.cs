@@ -16,7 +16,7 @@ namespace RandomFileGenerator
         [ValueArgument(typeof(long), 's', "size", Description = "Size of file in units", Optional = false)]
         public long Size { get; set; }
 
-        [EnumeratedValueArgument(typeof(string), 'u', "unit", Description = "Units are Bytes, KBytes, MBytes, GByte (B, KB, MB, GB)", AllowedValues = "B;KB;MB;GB", DefaultValue = "B")]
+        [EnumeratedValueArgument(typeof(string), 'u', "unit", Description = "Units are Bytes, KBytes, MBytes, GByte (B|b, K|k, M|m, Gg)", AllowedValues = "B;b;K;k;M;m;G;g", DefaultValue = "B")]
         public string Unit { get; set; }
 
         [EnumeratedValueArgument(typeof(string), 't', "type", Description = "Text or Binary", AllowedValues = "text;binary", DefaultValue = "text")]

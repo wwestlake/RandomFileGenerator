@@ -8,19 +8,26 @@ Console.WriteLine("Generating file");
 
 CommandLineParser.CommandLineParser parser = new CommandLineParser.CommandLineParser();
 ParsingTarget p = new ParsingTarget();
-    try
-    {
-        parser.ExtractArgumentAttributes(p);
-        parser.ParseCommandLine(args);
+try
+{
+    parser.ExtractArgumentAttributes(p);
+    parser.ParseCommandLine(args);
+}
+catch (Exception ex)
+{
+    Console.WriteLine(ex.ToString());
+    parser.ShowUsageHeader = "Here is how you use the app: ";
+    parser.ShowUsageFooter = "Have fun!";
+    parser.ShowUsage();
+    Environment.Exit(-1);
+}
 
-        Console.WriteLine($"Generating file {p.Filename} of size {p.Size} {p.Unit} -- {p.FileType}");
-
-    }
-    catch (Exception ex)
-    {
-
-        parser.ShowUsageHeader = "Here is how you use the app: ";
-        parser.ShowUsageFooter = "Have fun!";
-        parser.ShowUsage();
-    }
-
+try
+{
+    var fg = new FileGenerator(p);
+    fg.Generate();
+}
+catch (Exception ex)
+{
+    Console.WriteLine(ex.ToString());
+}
