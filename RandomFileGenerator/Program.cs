@@ -16,9 +16,6 @@ void ShowUsage()
     Environment.Exit(-1);
 }
 
-
-
-
 try
 {
    
@@ -42,6 +39,8 @@ try
 {
     var fg = new FileGenerator(parseTarget);
     fg.Generate();
+
+
 
     //ParagraphGenerator paragraphGenerator = new LoremIpsumParagraphGenerator();
     //
