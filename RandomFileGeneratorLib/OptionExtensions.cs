@@ -45,5 +45,24 @@ namespace RandomFileGeneratorLib
             return true;
         }
 
+        public static bool Exists(this ParsingTarget options)
+        {
+            return File.Exists(options.Filename);
+        }
+
+        public static FileStream Open(this ParsingTarget options)
+        {
+            if (options == null || options.Filename == null) 
+                throw new ArgumentNullException(nameof(options));
+
+            if (options.Exists())
+            {
+                return File.OpenRead(options.Filename);
+            }
+
+            throw new FileNotFoundException(options.Filename);
+        }
+
+
     }
 }

@@ -42,6 +42,13 @@ try
 {
     var fg = new FileGenerator(parseTarget);
     fg.Generate();
+
+    //ParagraphGenerator paragraphGenerator = new LoremIpsumParagraphGenerator();
+    //
+    //var text = paragraphGenerator.CreateParagraph(100,false);
+    //
+    //Console.WriteLine(text);
+
 }
 catch (Exception ex)
 {

@@ -31,5 +31,9 @@ namespace RandomFileGeneratorLib
         [ValueArgument(typeof(int), "max", Description = "Maximum Paragraph Size in words", DefaultValue = 50)]
         public int MaxPAragraphSize { get; set; }
 
+        [EnumeratedValueArgument(typeof(string), 'h', "hash", Description = "none|sha1|sha256|", AllowedValues = "sha1;sha256", DefaultValue = "none")]
+        public string? HashType { get; set; }
+
+
     }
 }

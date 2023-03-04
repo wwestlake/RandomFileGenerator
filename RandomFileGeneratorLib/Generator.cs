@@ -8,7 +8,6 @@ namespace RandomFileGeneratorLib
 {
     internal class Generator
     {
-        const int _maxBlockSize = 32 * 1024 * 1024;
         IGenerator _generator; 
 
         public Generator(ParsingTarget options)
@@ -27,7 +26,7 @@ namespace RandomFileGeneratorLib
         public void Generate(Stream sink, long numberOfBytes)
         {
             float percent;
-            if (numberOfBytes < _maxBlockSize)
+            if (numberOfBytes < Constants.MaxBlockSize)
             {
                 _generator.Generate(sink, numberOfBytes);
             } else
@@ -36,8 +35,8 @@ namespace RandomFileGeneratorLib
                 while (remaining > 0)
                 {
                     percent = remaining / (float)numberOfBytes;
-                    _generator.Generate(sink, Math.Min( _maxBlockSize, remaining));
-                    remaining -= _maxBlockSize;
+                    _generator.Generate(sink, Math.Min(Constants.MaxBlockSize, remaining));
+                    remaining -= Constants.MaxBlockSize;
                     Console.WriteLine($"{percent}% complete, Remain bytes: {remaining}");
                 }
             }
