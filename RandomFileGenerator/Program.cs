@@ -7,10 +7,10 @@ Console.WriteLine("Generating file");
 
 
 CommandLineParser.CommandLineParser parser = new CommandLineParser.CommandLineParser();
-ParsingTarget p = new ParsingTarget();
+ParsingTarget parseTarget = new ParsingTarget();
 try
 {
-    parser.ExtractArgumentAttributes(p);
+    parser.ExtractArgumentAttributes(parseTarget);
     parser.ParseCommandLine(args);
 }
 catch (Exception ex)
@@ -24,7 +24,7 @@ catch (Exception ex)
 
 try
 {
-    var fg = new FileGenerator(p);
+    var fg = new FileGenerator(parseTarget);
     fg.Generate();
 }
 catch (Exception ex)

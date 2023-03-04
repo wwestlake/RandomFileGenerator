@@ -2,7 +2,7 @@
   "profiles": {
     "TExtFileGenerator": {
       "commandName": "Project",
-      "commandLineArgs": "--file test.dat --size 4  --type text --unit g"
+      "commandLineArgs": "--file test.dat --size 4  --type text --unit k"
     }
   }
 }
