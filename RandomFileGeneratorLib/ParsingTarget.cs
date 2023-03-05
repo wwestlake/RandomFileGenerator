@@ -10,7 +10,7 @@ namespace RandomFileGeneratorLib
 {
     public class ParsingTarget
     {
-        [ValueArgument(typeof(string), 'f', "file", Description = "name of file to generate", Optional = false)]
+        [ValueArgument(typeof(string), 'f', "file", Description = "name of file to generate", Optional = true)]
         public string? Filename { get; set; }
 
         [ValueArgument(typeof(long), 's', "size", Description = "Size of file in units", DefaultValue = 1024)]
