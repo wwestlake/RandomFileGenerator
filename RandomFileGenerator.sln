@@ -16,6 +16,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "UnitTEsts\Unit
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{59BB7E4B-2FBC-4840-8440-8DAF2213D2CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileGeneratorGui", "FileGeneratorGui\FileGeneratorGui.csproj", "{86EAFE1D-E893-4F2A-9FB1-76CABB1E129C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileGeneration.Models", "FileGeneration.Models\FileGeneration.Models.csproj", "{57033C18-AD19-4343-B210-309237F112E3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +40,14 @@ Global
 		{20A23FBC-6FE7-4067-9829-682B89CA3CB0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{59BB7E4B-2FBC-4840-8440-8DAF2213D2CF}.Debug|Any CPU.ActiveCfg = Debug
 		{59BB7E4B-2FBC-4840-8440-8DAF2213D2CF}.Release|Any CPU.ActiveCfg = Release
+		{86EAFE1D-E893-4F2A-9FB1-76CABB1E129C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86EAFE1D-E893-4F2A-9FB1-76CABB1E129C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86EAFE1D-E893-4F2A-9FB1-76CABB1E129C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86EAFE1D-E893-4F2A-9FB1-76CABB1E129C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57033C18-AD19-4343-B210-309237F112E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57033C18-AD19-4343-B210-309237F112E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57033C18-AD19-4343-B210-309237F112E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57033C18-AD19-4343-B210-309237F112E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
