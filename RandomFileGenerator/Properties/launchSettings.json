@@ -1,7 +1,8 @@
 {
   "profiles": {
     "TExtFileGenerator": {
-      "commandName": "Project"
+      "commandName": "Project",
+      "commandLineArgs": "--file test.dat --size 1024 --unit m  --type binary"
     }
   }
 }

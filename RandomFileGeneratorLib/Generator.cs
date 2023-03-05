@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using RandomFileGeneratorLib.Connectors;
 
 namespace RandomFileGeneratorLib
 {
     internal class Generator
     {
-        IGenerator _generator; 
+        IGenerator _generator;
+        Connector _connector;
 
-        public Generator(ParsingTarget options)
+        public Generator(ParsingTarget options, Connector connector = null)
         {
+            _connector = connector;
             Options = options;
             switch (options.FileType)
             {
@@ -20,7 +23,7 @@ namespace RandomFileGeneratorLib
                         // TODO: we will select different generators here
                         _generator = new TextGenerator(new LoremIpsumParagraphGenerator(options)); break;
                     } 
-                case "binary": _generator = new BinaryGenerator(); break;
+                case "binary": _generator = new BinaryGenerator(options.Zeros); break;
             }
         }
 
@@ -39,9 +42,12 @@ namespace RandomFileGeneratorLib
                 while (remaining > 0)
                 {
                     percent = remaining / (float)numberOfBytes;
+                    if (_connector != null)
+                    {
+                        _connector.Send(new ProgressMessage((1.0f - percent) * 100));
+                    }
                     _generator.Generate(sink, Math.Min(Constants.MaxBlockSize, remaining));
                     remaining -= Constants.MaxBlockSize;
-                    Console.WriteLine($"{percent}% complete, Remain bytes: {remaining}");
                 }
             }
         }

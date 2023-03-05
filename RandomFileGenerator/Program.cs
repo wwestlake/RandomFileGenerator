@@ -4,6 +4,7 @@ using CommandLineParser.Arguments;
 using CommandLineParser.Exceptions;
 using RandomFileGeneratorLib.Policies;
 using RandomFileGenerator;
+using RandomFileGeneratorLib.Connectors;
 
 Console.WriteLine("Generating file");
 ParsingTarget parseTarget = new ParsingTarget();
@@ -15,6 +16,12 @@ void ShowUsage()
     parser.ShowUsageFooter = "Have fun!";
     parser.ShowUsage();
     Environment.Exit(-1);
+}
+
+void Progress(ProgressMessage message)
+{
+    Console.WriteLine($"{message.Progress}% complete");
+
 }
 
 try
@@ -47,7 +54,7 @@ try
             ShowUsage();
             Environment.Exit(-1);
         }
-        var fg = new FileGenerator(parseTarget);
+        var fg = new FileGenerator(parseTarget, new ProgressConnector((Message message) => Console.WriteLine($"{((ProgressMessage)message).Progress}% complete") ));
         fg.Generate();
     } else
     {

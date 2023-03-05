@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using RandomFileGeneratorLib.Connectors;
 
 namespace RandomFileGeneratorLib
 {
     public class FileGenerator
     {
-        public FileGenerator(ParsingTarget parsingTarget)
+        private ProgressConnector _connector;
+
+        public FileGenerator(ParsingTarget parsingTarget, ProgressConnector connector = null)
         {
+            _connector = connector;
             ParsingTarget = parsingTarget;
         }
 
@@ -25,7 +29,7 @@ namespace RandomFileGeneratorLib
 
         public void Generate()
         {
-            Generator gen = new Generator(ParsingTarget);
+            Generator gen = new Generator(ParsingTarget, _connector);
             var stream = new FileStream(ParsingTarget.Filename, FileMode.Create, FileAccess.Write);
             gen.Generate(stream, TotalSize);
             stream.Close();

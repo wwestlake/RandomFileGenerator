@@ -37,6 +37,8 @@ namespace RandomFileGeneratorLib
         [EnumeratedValueArgument(typeof(string), 'x', "text", Description = "plain|lorem|random-ascii|random-english", AllowedValues = "none;plain;lorem;random-ascii;random-english", DefaultValue = "none")]
         public string? TextType { get; set; }
 
+        [SwitchArgument('z', "zeros", false)]
+        public bool Zeros { get; set; }
 
     }
 }
