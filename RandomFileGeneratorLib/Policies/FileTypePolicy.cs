@@ -26,6 +26,11 @@ namespace RandomFileGeneratorLib.Policies
                 message = $"Paragraphize has no meaning for non-text files";
                 return false;
             }
+            if (options.FileType != "text" && options.TextType != "none")
+            {
+                message = $"TextType has no meaning for non-text files";
+                return false;
+            }
 
             return true;
         }

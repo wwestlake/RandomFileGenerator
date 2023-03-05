@@ -17,6 +17,8 @@ namespace RandomFileGeneratorLib.Hash
                 case "none": return Maybe<GenerateHash>.None();
                 case "sha1": return Maybe<GenerateHash>.Some( new GenerateHash(SHA1.Create()) );
                 case "sha256": return Maybe<GenerateHash>.Some( new GenerateHash(SHA256.Create()) );
+                case "sha384": return Maybe<GenerateHash>.Some(new GenerateHash(SHA384.Create()));
+                case "sha512": return Maybe<GenerateHash>.Some(new GenerateHash(SHA512.Create()));
             }
             return Maybe<GenerateHash>.None();
         }

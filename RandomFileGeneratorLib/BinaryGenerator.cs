@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RandomFileGeneratorLib
 {
-    internal class BinaryGenerator : IGenerator
+    public class BinaryGenerator : IGenerator
     {
         Random random = new Random((int)DateTime.Now.Ticks);
 

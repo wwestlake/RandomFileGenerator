@@ -15,7 +15,11 @@ namespace RandomFileGeneratorLib
             Options = options;
             switch (options.FileType)
             {
-                case "text": _generator = new LoremIpsumGenerator(options); break;
+                case "text":
+                    {
+                        // TODO: we will select different generators here
+                        _generator = new TextGenerator(new LoremIpsumParagraphGenerator(options)); break;
+                    } 
                 case "binary": _generator = new BinaryGenerator(); break;
             }
         }

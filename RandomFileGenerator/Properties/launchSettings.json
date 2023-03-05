@@ -2,7 +2,7 @@
   "profiles": {
     "TExtFileGenerator": {
       "commandName": "Project",
-      "commandLineArgs": "--file ttest.dat --type text"
+      "commandLineArgs": "--file test.dat --type text -p --size 1024"
     }
   }
 }

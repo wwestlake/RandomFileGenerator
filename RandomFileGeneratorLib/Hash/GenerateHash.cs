@@ -17,15 +17,16 @@ namespace RandomFileGeneratorLib.Hash
         }
         
 
-        public string Hash(ParsingTarget options)
+        public string Hash(Stream stream)
         {
-            var stream = options.Open();
             using (var bufferedStream = new BufferedStream(stream, Constants.MaxBlockSize))
             {
                 byte[] checksum = _algorithm.ComputeHash(bufferedStream);
                 return BitConverter.ToString(checksum).Replace("-", String.Empty);
             }
         }
+
+
 
 
     }
