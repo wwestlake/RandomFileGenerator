@@ -8,7 +8,7 @@ using CommandLineParser.Exceptions;
 
 namespace RandomFileGeneratorLib
 {
-    public class ParsingTarget
+    public class ParsingTarget : IFileGeneratorOptions
     {
         [ValueArgument(typeof(string), 'f', "file", Description = "name of file to generate", Optional = true)]
         public string? Filename { get; set; }

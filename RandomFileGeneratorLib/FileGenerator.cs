@@ -9,15 +9,15 @@ namespace RandomFileGeneratorLib
 {
     public class FileGenerator
     {
-        private ProgressConnector _connector;
+        private ProgressConnector? _connector;
 
-        public FileGenerator(ParsingTarget parsingTarget, ProgressConnector connector = null)
+        public FileGenerator(IFileGeneratorOptions parsingTarget, ProgressConnector? connector = null)
         {
             _connector = connector;
             ParsingTarget = parsingTarget;
         }
 
-        public ParsingTarget ParsingTarget { get; }
+        public IFileGeneratorOptions ParsingTarget { get; }
         public long TotalSize 
         { 
             get 
@@ -29,6 +29,14 @@ namespace RandomFileGeneratorLib
 
         public void Generate()
         {
+            if (ParsingTarget == null)
+            {
+                throw new NullReferenceException(Constants.PARSING_TARGE_NULL);
+            }
+            if (ParsingTarget.Filename == null)
+            {
+                throw new NullReferenceException(Constants.FILE_NAME_NULL);
+            }
             Generator gen = new Generator(ParsingTarget, _connector);
             var stream = new FileStream(ParsingTarget.Filename, FileMode.Create, FileAccess.Write);
             gen.Generate(stream, TotalSize);

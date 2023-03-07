@@ -9,10 +9,10 @@ namespace RandomFileGeneratorLib
 {
     internal class Generator
     {
-        IGenerator _generator;
-        Connector _connector;
+        IGenerator? _generator;
+        Connector? _connector;
 
-        public Generator(ParsingTarget options, Connector connector = null)
+        public Generator(IFileGeneratorOptions options, Connector? connector = null)
         {
             _connector = connector;
             Options = options;
@@ -27,7 +27,7 @@ namespace RandomFileGeneratorLib
             }
         }
 
-        public ParsingTarget Options { get; }
+        public IFileGeneratorOptions Options { get; }
         public IGenerator Gen { get; }
 
         public void Generate(Stream sink, long numberOfBytes)
@@ -35,7 +35,7 @@ namespace RandomFileGeneratorLib
             float percent;
             if (numberOfBytes < Constants.MaxBlockSize)
             {
-                _generator.Generate(sink, numberOfBytes);
+                _generator?.Generate(sink, numberOfBytes);
             } else
             {
                 var remaining = numberOfBytes;
@@ -46,7 +46,7 @@ namespace RandomFileGeneratorLib
                     {
                         _connector.Send(new ProgressMessage((1.0f - percent) * 100));
                     }
-                    _generator.Generate(sink, Math.Min(Constants.MaxBlockSize, remaining));
+                    _generator?.Generate(sink, Math.Min(Constants.MaxBlockSize, remaining));
                     remaining -= Constants.MaxBlockSize;
                 }
             }

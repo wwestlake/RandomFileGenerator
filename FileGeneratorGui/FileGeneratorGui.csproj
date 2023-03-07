@@ -8,8 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FileGeneration.Models\FileGeneration.Models.csproj" />
     <ProjectReference Include="..\RandomFileGeneratorLib\RandomFileGeneratorLib.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Commands\" />
+    <Folder Include="DTOs\" />
+    <Folder Include="Services\" />
+    <Folder Include="Stores\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
 
 </Project>

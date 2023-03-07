@@ -11,10 +11,10 @@ namespace RandomFileGeneratorLib
 
     internal class LoremIpsumParagraphGenerator : IGenerator
     {
-        private readonly ParsingTarget _options;
+        private readonly IFileGeneratorOptions _options;
         private readonly LoremIpsumGenerator _paragraphGenerator = new LoremIpsumGenerator();
 
-        public LoremIpsumParagraphGenerator(ParsingTarget options)
+        public LoremIpsumParagraphGenerator(IFileGeneratorOptions options)
         {
             _options = options;
         }

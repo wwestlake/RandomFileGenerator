@@ -23,8 +23,8 @@ namespace UnitTests
             byte[] zeros = new byte[1024];
             byte[] data = new byte[1024];
             MemoryStream mem = new MemoryStream(data, true);
-            var gen = new BinaryGenerator();
-            gen.Generate(mem, data.Length);
+            var gen = new BinaryGenerator(false);
+            gen.GenerateRandomBytes(mem, data.Length);
             Assert.That(zeros.SequenceEqual(data), Is.False);
         }
 

@@ -3,10 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:FileGeneratorGui"
+        xmlns:local="clr-namespace:FileGeneratorGui" xmlns:views="clr-namespace:FileGeneratorGui.Views"
         mc:Ignorable="d"
-        Title="Random File Geerator" Height="450" Width="800">
-    <Grid>
-
+        Title="Random File Geerator" Height="500" Width="800" FontSize="14">
+    <Grid MaxWidth="1024" Margin="20 10">
+        <views:CreateProjectView />
     </Grid>
 </Window>

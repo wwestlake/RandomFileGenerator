@@ -16,7 +16,7 @@ namespace RandomFileGeneratorLib
             _policies.Add(new Policies.FileTypePolicy());
         }
 
-        public static long FileSize(this ParsingTarget options)
+        public static long FileSize(this IFileGeneratorOptions options)
         {
             switch (options.Unit)
             {
@@ -32,7 +32,7 @@ namespace RandomFileGeneratorLib
             return options.Size;
         }
 
-        public static bool Validate(this ParsingTarget options, out string message)
+        public static bool Validate(this IFileGeneratorOptions options, out string message)
         {
             foreach (Policies.Policy policy in _policies)
             {
@@ -45,12 +45,12 @@ namespace RandomFileGeneratorLib
             return true;
         }
 
-        public static bool Exists(this ParsingTarget options)
+        public static bool Exists(this IFileGeneratorOptions options)
         {
             return File.Exists(options.Filename);
         }
 
-        public static FileStream Open(this ParsingTarget options)
+        public static FileStream Open(this IFileGeneratorOptions options)
         {
             if (options == null || options.Filename == null) 
                 throw new ArgumentNullException(nameof(options));

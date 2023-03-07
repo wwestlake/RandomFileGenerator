@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FileGeneration.Models
+namespace FileGeneratorGui.Models
 {
     public enum FileTypes
     {
@@ -16,6 +16,15 @@ namespace FileGeneration.Models
     { 
         RandomLetters,
         LoremIpsum,
+    }
+
+    public enum BinaryFileContents
+    {
+        AllZeros,
+        AllOnes,
+        RandomBytes,
+        SequentialBytes,
+        Custom
     }
 
     public enum TextFileFormat

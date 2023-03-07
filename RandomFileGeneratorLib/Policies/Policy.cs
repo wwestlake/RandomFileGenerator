@@ -5,7 +5,7 @@ namespace RandomFileGeneratorLib.Policies
 {
     public abstract class Policy
     {
-        public bool Check(ParsingTarget options, out string message)
+        public bool Check(IFileGeneratorOptions options, out string message)
         {
             if (! PolicyCheck(options) )
             {
@@ -16,8 +16,8 @@ namespace RandomFileGeneratorLib.Policies
             return true;
         }
 
-        protected abstract bool PolicyCheck(ParsingTarget options);
+        protected abstract bool PolicyCheck(IFileGeneratorOptions options);
 
-        protected abstract string FailMessage(ParsingTarget options);
+        protected abstract string FailMessage(IFileGeneratorOptions options);
     }
 }

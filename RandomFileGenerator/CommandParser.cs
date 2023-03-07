@@ -25,7 +25,7 @@ namespace RandomFileGenerator
             parser.ShowUsageFooter = "Have fun!";
             parser.ShowUsage();
         }
-        public static Maybe<ParsingTarget> Parse(string command)
+        public static Maybe<IFileGeneratorOptions> Parse(string command)
         {
             
             try
@@ -37,10 +37,10 @@ namespace RandomFileGenerator
                 {
                     Console.WriteLine($"\n\nOoops ther was an error:  {message}\n\n");
                     ShowUsage();
-                    return Maybe<ParsingTarget>.None();
+                    return Maybe<IFileGeneratorOptions>.None();
                 }
 
-                return Maybe<ParsingTarget>.Some(parseTarget);
+                return Maybe<IFileGeneratorOptions>.Some(parseTarget);
             } catch (Exception e) 
             { 
                 Console.WriteLine("An error occured, check your syntax.");
@@ -49,7 +49,7 @@ namespace RandomFileGenerator
                 Console.WriteLine();
                 parser.ShowUsage();
             }
-            return Maybe<ParsingTarget>.None();
+            return Maybe<IFileGeneratorOptions>.None();
             
         }
 

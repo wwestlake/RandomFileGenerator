@@ -9,12 +9,12 @@ namespace RandomFileGeneratorLib.Policies
     public class FileTypePolicy : Policy
     {
         string message = "Ok";
-        protected override string FailMessage(ParsingTarget options)
+        protected override string FailMessage(IFileGeneratorOptions options)
         {
             return message;
         }
 
-        protected override bool PolicyCheck(ParsingTarget options)
+        protected override bool PolicyCheck(IFileGeneratorOptions options)
         {
             if (options == null)
             {

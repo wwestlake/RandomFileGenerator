@@ -15,10 +15,10 @@ namespace RandomFileGeneratorLib
             _generator = generator;
         }
 
-
         public void Generate(Stream sink, long numberOfBytes)
         {
             _generator.Generate(sink, numberOfBytes);
         }
+
     }
 }

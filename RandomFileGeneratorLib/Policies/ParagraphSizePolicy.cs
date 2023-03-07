@@ -10,12 +10,12 @@ namespace RandomFileGeneratorLib.Policies
     {
         string message = string.Empty;
 
-        protected override string FailMessage(ParsingTarget options)
+        protected override string FailMessage(IFileGeneratorOptions options)
         {
             return message;
         }
 
-        protected override bool PolicyCheck(ParsingTarget options)
+        protected override bool PolicyCheck(IFileGeneratorOptions options)
         {
             if (options.FileSize() <= 0)
             {

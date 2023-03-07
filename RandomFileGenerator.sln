@@ -18,8 +18,6 @@ Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileGeneratorGui", "FileGeneratorGui\FileGeneratorGui.csproj", "{86EAFE1D-E893-4F2A-9FB1-76CABB1E129C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileGeneration.Models", "FileGeneration.Models\FileGeneration.Models.csproj", "{57033C18-AD19-4343-B210-309237F112E3}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,10 +42,6 @@ Global
 		{86EAFE1D-E893-4F2A-9FB1-76CABB1E129C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86EAFE1D-E893-4F2A-9FB1-76CABB1E129C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86EAFE1D-E893-4F2A-9FB1-76CABB1E129C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{57033C18-AD19-4343-B210-309237F112E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{57033C18-AD19-4343-B210-309237F112E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{57033C18-AD19-4343-B210-309237F112E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{57033C18-AD19-4343-B210-309237F112E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
