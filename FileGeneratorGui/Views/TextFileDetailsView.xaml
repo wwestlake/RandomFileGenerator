@@ -4,6 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FileGeneratorGui.Views"
+             xmlns:ext="clr-namespace:FileGeneratorGui.Extensions"
+             xmlns:types="clr-namespace:FileGeneratorGui.Types"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
@@ -23,7 +25,10 @@
                 <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
             <TextBlock Text="Contents" Grid.Row="0" Style="{StaticResource Label}"/>
-            <ComboBox Grid.Row="1" Margin="5" />
+            <ComboBox Grid.Row="1" Margin="5"
+                ItemsSource="{ext:EnumBindingSourceExtension types:TextFileContents}" 
+                SelectedItem="{Binding Contents, Mode=TwoWay}"
+            />
         </Grid>
 
         <Grid Grid.Row="2">
@@ -32,13 +37,11 @@
                 <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
             <TextBlock Text="Format" Grid.Row="0" Style="{StaticResource Label}"/>
-            <ComboBox Grid.Row="1" Margin="5" />
+            <ComboBox Grid.Row="1" Margin="5" 
+                ItemsSource="{ext:EnumBindingSourceExtension types:TextFileFormat}" 
+                SelectedItem="{Binding Format, Mode=TwoWay}"
+            />
         </Grid>
-
-        <StackPanel Orientation="Horizontal" Grid.Row="3">
-            <CheckBox VerticalAlignment="Center" Margin="5" />
-            <TextBlock VerticalAlignment="Center" Text="Use Paragraphs"  Style="{StaticResource Label}"/>
-        </StackPanel>
 
         <Grid Grid.Row="4">
             <Grid.RowDefinitions>
@@ -46,7 +49,7 @@
                 <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
             <TextBlock Text="Min Words per Paragraph" Grid.Row="0"  Style="{StaticResource Label}"/>
-            <TextBox Grid.Row="1" Text="" Margin="5" />
+            <TextBox Grid.Row="1" Text="{Binding MinWords}" Margin="5"  IsEnabled="{Binding UseParagraphs}" />
         </Grid>
         <Grid Grid.Row="5">
             <Grid.RowDefinitions>
@@ -54,7 +57,7 @@
                 <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
             <TextBlock Text="Max Words per Paragraph" Grid.Row="0" Style="{StaticResource Label}"/>
-            <TextBox Grid.Row="1" Text="" Margin="5" />
+            <TextBox Grid.Row="1" Text="{Binding MaxWords}" Margin="5" IsEnabled="{Binding UseParagraphs}" />
         </Grid>
 
     </Grid>

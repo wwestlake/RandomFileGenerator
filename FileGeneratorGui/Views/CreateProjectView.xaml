@@ -19,18 +19,18 @@
 
         <StackPanel Grid.Row="1" Orientation="Vertical">
             <TextBlock Text="Project Name" Style="{StaticResource Label}" />
-            <TextBox Text="" />
+            <TextBox Text="{Binding Path=Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         </StackPanel>
 
         <StackPanel Grid.Row="2" Orientation="Vertical">
             <TextBlock Text="Description" Style="{StaticResource Label}" />
-            <TextBox Text="" />
+            <TextBox Text="{Binding Path=Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         </StackPanel>
 
         <StackPanel Grid.Row="3" Orientation="Vertical">
             <TextBlock Text="Base Folder" Style="{StaticResource Label}" />
             <StackPanel Orientation="Horizontal">
-                <TextBox MinWidth="400" Text=""/>
+                <TextBox MinWidth="400" Text="{Binding Path=Folder, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 <Button Content="Browse"  />
             </StackPanel>
         </StackPanel>

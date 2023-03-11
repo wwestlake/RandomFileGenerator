@@ -1,5 +1,4 @@
-﻿using FileGeneratorGui.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,18 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace FileGeneratorGui
+namespace FileGeneratorGui.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for StartView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class StartView : UserControl
     {
-        public MainWindow()
+        public StartView()
         {
-            DataContext = new MainViewModel();
             InitializeComponent();
         }
-        
     }
 }

@@ -4,6 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FileGeneratorGui.Views"
+             xmlns:ext="clr-namespace:FileGeneratorGui.Extensions"
+             xmlns:types="clr-namespace:FileGeneratorGui.Types"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -20,7 +22,10 @@
                     <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
                 <TextBlock Text="Contents" Margin="5"  Grid.Row="0"  Style="{StaticResource Label}"/>
-                <ComboBox Grid.Row="1" Margin="5" />
+                <ComboBox Grid.Row="1" Margin="5" 
+                    ItemsSource="{ext:EnumBindingSourceExtension types:BinaryFileContents}" 
+                    SelectedItem="{Binding Contents, Mode=TwoWay}"
+                />
             </Grid>
             <Grid Grid.Row="2">
                 <Grid.RowDefinitions>
@@ -28,7 +33,7 @@
                     <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
                 <TextBlock Text="Custom Value (0-255)" Grid.Row="0" Style="{StaticResource Label}"/>
-                <TextBox Grid.Row="1" Text="" Margin="5" />
+                <TextBox Grid.Row="1" Text="{Binding CustomValue}" Margin="5" IsEnabled="{Binding CustomValueEnabled}" />
             </Grid>
 
         </Grid>

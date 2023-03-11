@@ -4,9 +4,24 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FileGeneratorGui.Views"
-             mc:Ignorable="d" 
+             xmlns:gui="clr-namespace:FileGeneratorGui"
+             xmlns:ext="clr-namespace:FileGeneratorGui.Extensions"
+             xmlns:types="clr-namespace:FileGeneratorGui.Types"
+             xmlns:vm="clr-namespace:FileGeneratorGui.ViewModels"
+             mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        <DataTemplate DataType="{x:Type vm:TextFileDetailsViewModel}">
+            <local:TextFileDetailsView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:BinaryFileDetailsViewModel}">
+            <local:BinaryFileDetailsView />
+        </DataTemplate>
+    </UserControl.Resources>
+    
     <Grid>
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="5" />
@@ -33,7 +48,12 @@
                     <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
                 <TextBlock Text="File Type" Grid.Row="0"  Style="{StaticResource Label}"/>
-                <ComboBox Grid.Row="1" Margin="5" />
+
+                <ComboBox Grid.Row="1" Margin="5" 
+                          ItemsSource="{ext:EnumBindingSourceExtension types:FileTypes}" 
+                          SelectedItem="{Binding FileType, Mode=TwoWay}"
+                          />
+
             </Grid>
 
 
@@ -48,8 +68,8 @@
                         <ColumnDefinition Width="4*" />
                         <ColumnDefinition Width="1*" />
                     </Grid.ColumnDefinitions>
-                    <TextBox Grid.Column="0" Text="" Margin="5" />
-                    <Button Grid.Column="1" Content="Select" />
+                    <TextBox Grid.Column="0" Text="{Binding Folder}" Margin="5" />
+                    <Button Grid.Column="1" Command="{Binding SelectFolderCommand}" Content="Select" />
                 </Grid>
             </Grid>
 
@@ -64,7 +84,7 @@
                         <ColumnDefinition Width="4*" />
                         <ColumnDefinition Width="1*" />
                     </Grid.ColumnDefinitions>
-                    <TextBox Grid.Column="0" Text="" Margin="5" />
+                    <TextBox Grid.Column="0" Text="{Binding Filename}" Margin="5" />
                 </Grid>
             </Grid>
 
@@ -79,7 +99,7 @@
                         <ColumnDefinition Width="4*" />
                         <ColumnDefinition Width="1*" />
                     </Grid.ColumnDefinitions>
-                    <TextBox Grid.Column="0" Text="" Margin="5" />
+                    <TextBox Grid.Column="0" Text="{Binding Description}" Margin="5" />
                 </Grid>
             </Grid>
 
@@ -94,7 +114,7 @@
                         <ColumnDefinition Width="4*" />
                         <ColumnDefinition Width="1*" />
                     </Grid.ColumnDefinitions>
-                    <TextBox Grid.Column="0" Text="" Margin="5" />
+                    <TextBox Grid.Column="0" Text="{Binding Size}" Margin="5" />
                 </Grid>
             </Grid>
 
@@ -109,17 +129,18 @@
                         <ColumnDefinition Width="4*" />
                         <ColumnDefinition Width="1*" />
                     </Grid.ColumnDefinitions>
-                    <TextBox Grid.Column="0" Text="" Margin="5" />
+                    <TextBox Grid.Column="0" Text="{Binding BlockSize}" Margin="5" />
                 </Grid>
             </Grid>
 
             <StackPanel Grid.Row="7" Orientation="Horizontal">
-                <Button Content="Save" />
-                <Button Content="Cancel" />
+                <Button Content="Save" Command="{Binding SaveCommand}" />
+                <Button Content="Cancel" Command="{Binding CancelCommand}"/>
             </StackPanel>           
 
         </Grid>
         <GridSplitter Grid.Column="1" Width="10" HorizontalAlignment="Stretch"/>
-        <local:BinaryFileDetailsView Grid.Column="2" />
+        <ContentControl Content="{Binding DetailsViewModel}" Grid.Column="2" />
+
     </Grid>
 </UserControl>

@@ -12,11 +12,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Commands\" />
     <Folder Include="DTOs\" />
     <Folder Include="Services\" />
     <Folder Include="Stores\" />
-    <Folder Include="ViewModels\" />
+    <Folder Include="ValueConverters\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft-WindowsAPICodePack-Shell" Version="1.1.4" />
   </ItemGroup>
 
 </Project>

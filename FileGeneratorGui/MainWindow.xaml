@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="Random File Geerator" Height="500" Width="800" FontSize="14">
     <Grid MaxWidth="1024" Margin="20 10">
-        <views:CreateProjectView />
+        <views:StartView DataContext="{Binding CurrentViewModel}" />
     </Grid>
 </Window>

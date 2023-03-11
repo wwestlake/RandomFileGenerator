@@ -18,5 +18,12 @@
             <Setter Property="FontSize" Value="14" />
             <Setter Property="Margin" Value="3 0 0 3" />
         </Style>
+        <Style TargetType="TextBlock" x:Key="DataTable">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Margin" Value="3 0 0 3" />
+            <Setter Property="Padding" Value="0 0 30 0" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+
     </Application.Resources>
 </Application>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FileGeneratorGui.Models
+namespace FileGeneratorGui.Types
 {
     public enum FileTypes
     {
